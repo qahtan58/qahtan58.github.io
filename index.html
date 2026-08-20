@@ -1,1122 +1,993 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>Qahtan Al Oud | Independent Security Researcher</title>
+  <title>Qahtan Al Oud | Independent Security Researcher</title>
 
-<meta name="description"
-content="Qahtan Al Oud — Independent security researcher focused on Bitcoin and blockchain forensics, digital investigation, historical blockchain research, reproducible evidence, and consensus-critical analysis.">
+  <meta name="description"
+        content="Qahtan Al Oud — Independent security researcher focused on Bitcoin forensics, blockchain forensics, digital investigation, historical blockchain research, reproducible evidence, statistical analysis, and consensus research.">
 
-<meta name="keywords"
-content="Qahtan Al Oud, Bitcoin Forensics, Blockchain Forensics, Digital Investigation, Bitcoin Research, BSC Forensics, Blockchain Research">
+  <meta name="keywords"
+        content="Qahtan Al Oud, Bitcoin Forensics, Blockchain Forensics, Digital Investigation, Satoshi Era, BSC Forensics, Reproducible Evidence, Consensus Analysis, State Transition Research">
 
-<meta name="author" content="Qahtan Al Oud">
+  <meta name="author" content="Qahtan Al Oud">
 
-<link rel="canonical" href="https://qahtan58.github.io/">
+  <meta property="og:title"
+        content="Qahtan Al Oud | Independent Security Researcher">
 
-<meta property="og:title"
-content="Qahtan Al Oud | Independent Security Researcher">
+  <meta property="og:description"
+        content="Bitcoin and blockchain forensic research, reproducible evidence, historical blockchain analysis, and differential testing.">
 
-<meta property="og:description"
-content="Bitcoin Forensics · Blockchain Forensics · Digital Investigation · Consensus & State-Transition Research">
+  <meta property="og:type" content="website">
 
-<meta property="og:type" content="profile">
+  <meta property="og:url"
+        content="https://qahtan58.github.io/">
 
-<meta property="og:url"
-content="https://qahtan58.github.io/">
+  <link rel="canonical"
+        href="https://qahtan58.github.io/">
 
-<meta name="twitter:card" content="summary">
-
-
-<style>
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #070b14;
-    color: #eef2ff;
-    line-height: 1.7;
-}
-
-a {
-    color: inherit;
-}
-
-.container {
-    width: min(1100px, 92%);
-    margin: auto;
-}
-
-
-/* NAVIGATION */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    background: rgba(7,11,20,0.88);
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid #172235;
-}
-
-.nav-inner {
-    width: min(1100px, 92%);
-    margin: auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    min-height: 70px;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 19px;
-    color: #eef2ff;
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #9ba7bc;
-    font-size: 14px;
-}
-
-.nav-links a:hover {
-    color: #75adff;
-}
-
-
-/* HERO */
-
-header {
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-
-    padding-top: 70px;
-
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            #172a4d 0%,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            #10213d 0%,
-            transparent 30%
-        ),
-        #070b14;
-}
-
-.badge {
-    display: inline-block;
-
-    padding: 10px 18px;
-
-    border: 1px solid #397bd6;
-    border-radius: 30px;
-
-    color: #75adff;
-
-    margin-bottom: 25px;
-}
-
-h1 {
-    font-size: clamp(48px, 9vw, 90px);
-
-    line-height: 1;
-
-    margin-bottom: 25px;
-
-    letter-spacing: -2px;
-}
-
-.hero-title {
-    font-size: clamp(22px, 4vw, 38px);
-
-    color: #aeb9cf;
-
-    max-width: 900px;
-
-    margin-bottom: 35px;
-}
-
-.hero-text {
-    font-size: 19px;
-
-    color: #8995ad;
-
-    max-width: 850px;
-}
-
-.buttons {
-    display: flex;
-
-    gap: 15px;
-
-    margin-top: 35px;
-
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-
-    text-decoration: none;
-
-    padding: 14px 25px;
-
-    border-radius: 10px;
-
-    border: 1px solid #31527e;
-
-    color: white;
-
-    background: #111a2a;
-
-    transition: 0.2s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-
-    border-color: #4d8fe8;
-}
-
-.btn.primary {
-    background: #1769d5;
-
-    border-color: #1769d5;
-}
-
-
-/* SECTIONS */
-
-section {
-    padding: 95px 0;
-}
-
-.section-title {
-    font-size: 38px;
-
-    margin-bottom: 15px;
-}
-
-.section-subtitle {
-    color: #8995ad;
-
-    margin-bottom: 40px;
-
-    max-width: 780px;
-}
-
-
-/* GRID */
-
-.grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
-
-    gap: 20px;
-}
-
-.card {
-    background: #0d1422;
-
-    border: 1px solid #1b2b43;
-
-    border-radius: 16px;
-
-    padding: 28px;
-
-    transition: 0.2s;
-}
-
-.card:hover {
-    border-color: #315f9d;
-
-    transform: translateY(-3px);
-}
-
-.card h3 {
-    font-size: 23px;
-
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #8f9bb0;
-}
-
-.tag {
-    display: inline-block;
-
-    margin-top: 18px;
-
-    margin-right: 6px;
-
-    padding: 5px 10px;
-
-    border-radius: 20px;
-
-    background: #13233b;
-
-    color: #78adf5;
-
-    font-size: 13px;
-}
-
-
-/* RESEARCH STATUS */
-
-.status {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-bottom: 18px;
-
-    color: #75adff;
-
-    font-size: 13px;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #4d9cff;
-}
-
-
-/* RESEARCH PORTFOLIO */
-
-.research-card {
-    min-height: 100%;
-}
-
-.research-number {
-    color: #397bd6;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    margin-bottom: 12px;
-}
-
-.project-link {
-    display: inline-block;
-
-    margin-top: 22px;
-
-    color: #73adff;
-
-    text-decoration: none;
-
-    font-weight: bold;
-}
-
-.project-link:hover {
-    text-decoration: underline;
-}
-
-
-/* METHODOLOGY */
-
-.method-number {
-    font-size: 34px;
-
-    color: #397bd6;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
-}
-
-
-/* ABOUT */
-
-.profile {
-    max-width: 850px;
-}
-
-.profile p {
-    color: #9ba7bc;
-
-    font-size: 18px;
-
-    margin-bottom: 20px;
-}
-
-
-/* EVIDENCE */
-
-.evidence {
-    background: #0a101c;
-}
-
-.evidence-box {
-    border-left: 3px solid #397bd6;
-
-    padding: 25px;
-
-    background: #0d1422;
-
-    border-radius: 0 12px 12px 0;
-}
-
-.evidence-box p {
-    color: #9ba7bc;
-
-    margin-bottom: 12px;
-}
-
-
-/* CONTACT */
-
-.contact {
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            #13294b,
-            #0a101c 45%
-        );
-}
-
-.email {
-    color: #73adff;
-
-    font-size: 20px;
-
-    text-decoration: none;
-}
-
-.email:hover {
-    text-decoration: underline;
-}
-
-
-/* FOOTER */
-
-footer {
-    text-align: center;
-
-    padding: 30px;
-
-    color: #68758b;
-
-    border-top: 1px solid #172235;
-
-    font-size: 14px;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .nav-links {
-        display: none;
+  <style>
+    :root {
+      --bg: #050914;
+      --bg2: #0a1222;
+      --card: rgba(15, 27, 48, 0.78);
+      --border: rgba(88, 150, 255, 0.35);
+      --blue: #4d9cff;
+      --blue2: #75adff;
+      --text: #f2f6ff;
+      --muted: #9baac5;
+      --green: #45d483;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
     }
 
-    section {
-        padding: 70px 0;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 75% 10%,
+          rgba(43, 103, 200, .30),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(28, 78, 150, .22),
+          transparent 35%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(5, 9, 20, .86);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 720px;
+
+      display: flex;
+      align-items: center;
+
+      padding: 100px 0 80px;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      padding: 9px 28px;
+
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+
+      color: var(--blue2);
+
+      font-size: 15px;
+      font-weight: 600;
+
+      margin-bottom: 34px;
     }
 
     h1 {
-        font-size: 52px;
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: .98;
+      letter-spacing: -4px;
+
+      margin-bottom: 30px;
     }
 
     .hero-title {
-        font-size: 23px;
+      color: #c4d0e8;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.65;
+
+      max-width: 900px;
+      margin-bottom: 34px;
     }
 
-    .hero-text {
+    .hero-description {
+      max-width: 780px;
+
+      color: var(--muted);
+      font-size: 19px;
+
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 180px;
+      padding: 15px 28px;
+
+      border-radius: 14px;
+
+      font-weight: 700;
+
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: #2478e5;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(20,35,60,.5);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      color: var(--blue2);
+      font-size: 13px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 38px;
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+
+      border: 1px solid rgba(92,145,220,.20);
+      border-radius: 20px;
+
+      padding: 30px;
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(12px);
+    }
+
+    .card:hover {
+      border-color: var(--border);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+
+      padding: 5px 11px;
+
+      margin-top: 18px;
+      margin-right: 5px;
+
+      border-radius: 999px;
+
+      background: rgba(77,156,255,.10);
+      border: 1px solid rgba(77,156,255,.25);
+
+      color: var(--blue2);
+
+      font-size: 12px;
+    }
+
+    /* EVIDENCE */
+
+    .evidence {
+      border-color: rgba(69,212,131,.28);
+    }
+
+    .evidence-status {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 18px;
+
+      color: var(--green);
+
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+    }
+
+    .evidence-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .evidence-list li {
+      padding: 12px 0;
+
+      border-bottom: 1px solid rgba(255,255,255,.07);
+
+      color: var(--muted);
+    }
+
+    .evidence-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .evidence-list strong {
+      color: var(--text);
+    }
+
+    /* RESEARCH */
+
+    .research-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-card::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background: var(--blue);
+    }
+
+    .repo {
+      color: var(--blue2);
+      font-size: 13px;
+      font-weight: 800;
+
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* METHODOLOGY */
+
+    .method-number {
+      color: var(--blue);
+      font-size: 34px;
+      font-weight: 900;
+
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      text-align: center;
+
+      padding: 55px 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(20,52,100,.65),
+          rgba(10,18,35,.85)
+        );
+
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 40px 0;
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      color: var(--muted);
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+
+      .nav-inner {
+        min-height: 62px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 0 70px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-title {
+        font-size: 22px;
+      }
+
+      .hero-description {
         font-size: 17px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
+  </style>
 
-}
+  <!-- STRUCTURED DATA -->
 
-</style>
-
-
-<!-- STRUCTURED DATA -->
-
-<script type="application/ld+json">
-
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-
-  "name": "Qahtan Al Oud",
-
-  "url": "https://qahtan58.github.io/",
-
-  "email": "mailto:qahtanbins1@gmail.com",
-
-  "jobTitle": "Independent Security Researcher",
-
-  "sameAs": [
-    "https://github.com/qahtan58"
-  ],
-
-  "knowsAbout": [
-    "Bitcoin Forensics",
-    "Blockchain Forensics",
-    "Digital Investigation",
-    "Historical Blockchain Research",
-    "Consensus Analysis",
-    "State Transition Analysis",
-    "Statistical Analysis",
-    "Reproducible Research"
-  ]
-}
-
-</script>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Qahtan Al Oud",
+    "url": "https://qahtan58.github.io/",
+    "email": "mailto:qahtanbins1@gmail.com",
+    "jobTitle": "Independent Security Researcher",
+    "knowsAbout": [
+      "Bitcoin Forensics",
+      "Blockchain Forensics",
+      "Digital Investigation",
+      "Historical Blockchain Research",
+      "Consensus Analysis",
+      "State Transition Analysis",
+      "Statistical Analysis",
+      "Reproducible Research"
+    ]
+  }
+  </script>
 </head>
-
 
 <body>
 
+  <!-- NAVIGATION -->
 
-<!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
 
-<nav>
+      <a class="logo" href="#home">
+        Qahtan Al Oud
+      </a>
 
-<div class="nav-inner">
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-<a class="logo"
-href="#">
-Qahtan Al Oud
-</a>
+    </div>
+  </nav>
 
-<div class="nav-links">
 
-<a href="#research">
-Research
-</a>
+  <!-- HERO -->
 
-<a href="#portfolio">
-Portfolio
-</a>
+  <main id="home">
 
-<a href="#methodology">
-Methodology
-</a>
+    <section class="hero">
 
-<a href="#about">
-About
-</a>
+      <div class="container">
 
-<a href="#contact">
-Contact
-</a>
+        <div class="badge">
+          Independent Security Researcher
+        </div>
 
-</div>
+        <h1>
+          Qahtan Al Oud
+        </h1>
 
-</div>
+        <div class="hero-title">
+          Bitcoin Forensics · Blockchain Forensics ·
+          Digital Investigation · Consensus &amp;
+          State-Transition Research
+        </div>
 
-</nav>
+        <p class="hero-description">
+          Independent security researcher focused on forensic
+          analysis of Bitcoin and blockchain systems,
+          historical blockchain research, reproducible evidence,
+          statistical analysis, and differential testing of
+          consensus-critical execution paths.
+        </p>
 
+        <div class="buttons">
 
-<!-- HERO -->
+          <a
+            class="btn btn-primary"
+            href="https://github.com/qahtan58"
+            target="_blank"
+            rel="noopener">
+            GitHub
+          </a>
 
-<header>
+          <a
+            class="btn btn-secondary"
+            href="#research">
+            Research Portfolio
+          </a>
 
-<div class="container">
+        </div>
 
-<span class="badge">
-Independent Security Researcher
-</span>
+      </div>
 
-<h1>
-Qahtan Al Oud
-</h1>
+    </section>
 
-<div class="hero-title">
 
-Bitcoin Forensics · Blockchain Forensics ·
-Digital Investigation · Consensus & State-Transition Research
+    <!-- RESEARCH -->
 
-</div>
+    <section id="research">
 
-<p class="hero-text">
+      <div class="container">
 
-Independent security researcher focused on forensic analysis
-of Bitcoin and blockchain systems, historical blockchain research,
-reproducible evidence, statistical analysis, and differential
-testing of consensus-critical execution paths.
+        <div class="section-label">
+          Research Portfolio
+        </div>
 
-</p>
+        <h2>
+          Selected Research
+        </h2>
 
-<div class="buttons">
+        <p class="section-intro">
+          Public research repositories documenting historical
+          blockchain analysis, forensic auditing, differential
+          testing, and reproducible research artifacts.
+        </p>
 
-<a
-class="btn primary"
-href="https://github.com/qahtan58"
-target="_blank"
-rel="noopener">
 
-GitHub
+        <div class="grid">
 
-</a>
+          <!-- BSC -->
 
-<a
-class="btn"
-href="#portfolio">
+          <article class="card research-card">
 
-Research Portfolio
+            <div class="repo">
+              BSC-Forensics
+            </div>
 
-</a>
+            <h3>
+              Historical Consensus &amp;
+              State-Transition Differential Testing
+            </h3>
 
-<a
-class="btn"
-href="mailto:qahtanbins1@gmail.com">
+            <p>
+              Forensic research framework for BNB Smart Chain,
+              focused on historical consensus behavior and
+              differential testing of state-transition execution.
+            </p>
 
-Contact
+            <span class="tag">
+              BNB Smart Chain
+            </span>
 
-</a>
+            <span class="tag">
+              Forensics
+            </span>
 
-</div>
+            <span class="tag">
+              Differential Testing
+            </span>
 
-</div>
+            <br><br>
 
-</header>
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/qahtan58/BSC-Forensics"
+              target="_blank"
+              rel="noopener">
+              View Repository
+            </a>
 
+          </article>
 
-<!-- RESEARCH -->
 
-<section id="research">
+          <!-- SATOSHI ERA -->
 
-<div class="container">
+          <article class="card research-card">
 
-<h2 class="section-title">
-Research Focus
-</h2>
+            <div class="repo">
+              satoshi-era-forensic-audit
+            </div>
 
-<p class="section-subtitle">
+            <h3>
+              Satoshi-Era Forensic Audit
+            </h3>
 
-Independent technical research across blockchain
-forensics, historical data analysis, and
-consensus-critical systems.
+            <p>
+              Forensic audit and ExtraNonce serialization anomaly
+              research suite for Bitcoin Satoshi-era blocks
+              covering heights 1 to 10,000.
+            </p>
 
-</p>
+            <span class="tag">
+              Bitcoin
+            </span>
 
+            <span class="tag">
+              Satoshi Era
+            </span>
 
-<div class="grid">
+            <span class="tag">
+              ExtraNonce
+            </span>
 
+            <br><br>
 
-<div class="card">
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/qahtan58/satoshi-era-forensic-audit"
+              target="_blank"
+              rel="noopener">
+              View Repository
+            </a>
 
-<div class="status">
-<span class="status-dot"></span>
-Research Area
-</div>
+          </article>
 
-<h3>
-Bitcoin Forensics
-</h3>
 
-<p>
+          <!-- ARCHIVE -->
 
-Historical analysis of Bitcoin blockchain data,
-block-level behavior, transaction structures,
-statistical signals, and reproducible forensic evidence.
+          <article class="card research-card">
 
-</p>
+            <div class="repo">
+              Bitcoin Block Archive
+            </div>
 
-<span class="tag">Bitcoin</span>
-<span class="tag">Forensics</span>
-<span class="tag">Historical Data</span>
+            <h3>
+              Historical Block-Height / Hash Archive
+            </h3>
 
-</div>
+            <p>
+              Internally validated archive of Bitcoin
+              block-height and block-hash records covering
+              heights 1–66,311.
+            </p>
 
+            <span class="tag">
+              Bitcoin
+            </span>
 
-<div class="card">
+            <span class="tag">
+              Historical Data
+            </span>
 
-<div class="status">
-<span class="status-dot"></span>
-Research Area
-</div>
+            <span class="tag">
+              Archive
+            </span>
 
-<h3>
-Blockchain Forensics
-</h3>
+          </article>
 
-<p>
 
-Technical investigation of blockchain data and
-execution behavior using documented analytical
-methods and independently verifiable evidence.
+          <!-- REPRODUCIBILITY -->
 
-</p>
+          <article class="card evidence">
 
-<span class="tag">Blockchain</span>
-<span class="tag">Investigation</span>
-<span class="tag">Evidence</span>
+            <div class="evidence-status">
+              <span class="status-dot"></span>
+              Reproducibility
+            </div>
 
-</div>
+            <h3>
+              Reproducible Research
+            </h3>
 
+            <p>
+              Research artifacts are organized to support
+              independent inspection, reproduction, and
+              verification of documented procedures and outputs.
+            </p>
 
-<div class="card">
+            <span class="tag">
+              Reproducible Research
+            </span>
 
-<div class="status">
-<span class="status-dot"></span>
-Research Area
-</div>
+            <span class="tag">
+              Independent Verification
+            </span>
 
-<h3>
-Consensus & State Transitions
-</h3>
+          </article>
 
-<p>
+        </div>
 
-Research into consensus-critical execution paths,
-state transitions, differential behavior, and
-statistical analysis within blockchain systems.
+      </div>
 
-</p>
+    </section>
 
-<span class="tag">Consensus</span>
-<span class="tag">State Transition</span>
-<span class="tag">Testing</span>
 
-</div>
+    <!-- REPRODUCIBLE EVIDENCE -->
 
-</div>
+    <section id="evidence">
 
-</div>
+      <div class="container">
 
-</section>
+        <div class="section-label">
+          Evidence
+        </div>
 
+        <h2>
+          Reproducible Evidence
+        </h2>
 
-<!-- PORTFOLIO -->
+        <p class="section-intro">
+          Evidence-oriented research documentation designed
+          to make analytical procedures and historical blockchain
+          observations independently inspectable.
+        </p>
 
-<section id="portfolio">
 
-<div class="container">
+        <div class="card evidence">
 
-<h2 class="section-title">
-Research Portfolio
-</h2>
+          <div class="evidence-status">
+            <span class="status-dot"></span>
+            Evidence Framework
+          </div>
 
-<p class="section-subtitle">
+          <h3>
+            Evidence-first methodology
+          </h3>
 
-Selected public research repositories and technical
-work emphasizing reproducibility and transparent methodology.
+          <ul class="evidence-list">
 
-</p>
+            <li>
+              <strong>Source data</strong><br>
+              Historical blockchain records and associated
+              research artifacts.
+            </li>
 
+            <li>
+              <strong>Reproduction</strong><br>
+              Procedures are structured so that an independent
+              researcher can inspect the methodology and outputs.
+            </li>
 
-<div class="grid">
+            <li>
+              <strong>Statistical analysis</strong><br>
+              Quantitative tests may be used to evaluate observed
+              patterns and deviations.
+            </li>
 
+            <li>
+              <strong>Differential testing</strong><br>
+              Consensus-critical execution paths can be compared
+              across implementations or controlled test conditions.
+            </li>
 
-<!-- BSC -->
+            <li>
+              <strong>Evidence separation</strong><br>
+              Observations, analytical results, and attribution
+              hypotheses are kept conceptually separate.
+            </li>
 
-<div class="card research-card">
+          </ul>
 
-<div class="research-number">
-01 · BSC FORENSICS
-</div>
+        </div>
 
-<h3>
-Historical Consensus & State-Transition Differential Testing
-</h3>
+      </div>
 
-<p>
+    </section>
 
-A reproducible forensic research project focused on
-BNB Smart Chain data analysis, historical consensus
-and state-transition research, differential testing,
-and technical evidence.
 
-</p>
+    <!-- METHODOLOGY -->
 
-<span class="tag">BNB Smart Chain</span>
-<span class="tag">Forensics</span>
-<span class="tag">Differential Testing</span>
+    <section id="methodology">
 
-<br>
+      <div class="container">
 
-<a
-class="project-link"
-href="https://github.com/qahtan58/BSC-Forensics"
-target="_blank"
-rel="noopener">
+        <div class="section-label">
+          Methodology
+        </div>
 
-View Repository →
+        <h2>
+          Research Method
+        </h2>
 
-</a>
+        <p class="section-intro">
+          A structured workflow for historical blockchain
+          and forensic research.
+        </p>
 
-</div>
 
+        <div class="grid">
 
-<!-- SATOSHI -->
+          <article class="card">
 
-<div class="card research-card">
+            <div class="method-number">
+              01
+            </div>
 
-<div class="research-number">
-02 · BITCOIN
-</div>
+            <h3>
+              Acquire
+            </h3>
 
-<h3>
-Satoshi-Era Forensic Audit
-</h3>
+            <p>
+              Collect the relevant historical blockchain records
+              and preserve the original analytical scope.
+            </p>
 
-<p>
+          </article>
 
-Independent forensic research focused on historical
-Bitcoin blockchain data and the examination of early
-blockchain activity using documented analytical methods.
 
-</p>
+          <article class="card">
 
-<span class="tag">Bitcoin</span>
-<span class="tag">Historical Research</span>
-<span class="tag">Forensics</span>
+            <div class="method-number">
+              02
+            </div>
 
-<br>
+            <h3>
+              Validate
+            </h3>
 
-<a
-class="project-link"
-href="https://github.com/qahtan58/satoshi-era-forensic-audit"
-target="_blank"
-rel="noopener">
+            <p>
+              Check data completeness, consistency, and
+              reproducibility before performing statistical
+              or forensic analysis.
+            </p>
 
-View Repository →
+          </article>
 
-</a>
 
-</div>
+          <article class="card">
 
+            <div class="method-number">
+              03
+            </div>
 
-<!-- EVIDENCE -->
+            <h3>
+              Analyze
+            </h3>
 
-<div class="card research-card">
+            <p>
+              Apply statistical analysis, structural inspection,
+              and differential testing where appropriate.
+            </p>
 
-<div class="research-number">
-03 · METHODOLOGY
-</div>
+          </article>
 
-<h3>
-Reproducible Evidence
-</h3>
 
-<p>
+          <article class="card">
 
-Research methodology emphasizing documented procedures,
-independent verification, reproducible datasets,
-statistical analysis, and clear separation between
-observed evidence and attribution claims.
+            <div class="method-number">
+              04
+            </div>
 
-</p>
+            <h3>
+              Document
+            </h3>
 
-<span class="tag">Evidence</span>
-<span class="tag">Verification</span>
-<span class="tag">Methodology</span>
+            <p>
+              Preserve procedures, observations, and research
+              artifacts so that results can be independently
+              inspected.
+            </p>
 
-</div>
+          </article>
 
+        </div>
 
-</div>
+      </div>
 
-</div>
+    </section>
 
-</section>
 
+    <!-- CONTACT -->
 
-<!-- METHODOLOGY -->
+    <section id="contact">
 
-<section id="methodology">
+      <div class="container">
 
-<div class="container">
+        <div class="contact-box">
 
-<h2 class="section-title">
-Research Methodology
-</h2>
+          <div class="section-label">
+            Contact
+          </div>
 
-<p class="section-subtitle">
+          <h2>
+            Qahtan Al Oud
+          </h2>
 
-A structured approach designed to make technical
-observations reproducible and independently reviewable.
+          <p>
+            Independent Security Researcher
+          </p>
 
-</p>
+          <div class="buttons">
 
+            <a
+              class="btn btn-primary"
+              href="mailto:qahtanbins1@gmail.com">
+              Contact
+            </a>
 
-<div class="grid">
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/qahtan58"
+              target="_blank"
+              rel="noopener">
+              GitHub Profile
+            </a>
 
+          </div>
 
-<div class="card">
+        </div>
 
-<div class="method-number">
-01
-</div>
+      </div>
 
-<h3>
-Data
-</h3>
+    </section>
 
-<p>
+  </main>
 
-Define the research scope, identify the relevant
-blockchain data, and document the data collection
-and processing procedures.
 
-</p>
+  <!-- FOOTER -->
 
-</div>
+  <footer>
 
+    <div class="container">
 
-<div class="card">
+      © 2026 Qahtan Al Oud ·
+      Independent Security Research
 
-<div class="method-number">
-02
-</div>
+    </div>
 
-<h3>
-Analysis
-</h3>
-
-<p>
-
-Apply structural, statistical, and differential
-analysis to identify measurable patterns or
-differences in observed behavior.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="method-number">
-03
-</div>
-
-<h3>
-Verification
-</h3>
-
-<p>
-
-Reproduce technical observations and compare
-results against independently obtainable data
-where applicable.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="method-number">
-04
-</div>
-
-<h3>
-Evidence
-</h3>
-
-<p>
-
-Document observations, procedures, limitations,
-supporting material, and the distinction between
-technical evidence and interpretation.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- EVIDENCE PRINCIPLES -->
-
-<section class="evidence">
-
-<div class="container">
-
-<h2 class="section-title">
-Evidence Principles
-</h2>
-
-<p class="section-subtitle">
-
-The research presentation emphasizes technical
-transparency and avoids conclusions that exceed
-the available evidence.
-
-</p>
-
-
-<div class="evidence-box">
-
-<p>
-<strong>Reproducibility:</strong>
-Methods and research scope should be documented
-so that relevant observations can be independently examined.
-</p>
-
-<p>
-<strong>Verification:</strong>
-Where possible, technical observations are checked
-against independently obtainable blockchain data.
-</p>
-
-<p>
-<strong>Separation of claims:</strong>
-Observed technical behavior is distinguished from
-interpretation, causation, and attribution.
-</p>
-
-<p>
-<strong>Limitations:</strong>
-Research conclusions remain bounded by the available
-data, methodology, and verification scope.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container profile">
-
-<h2 class="section-title">
-About the Researcher
-</h2>
-
-<p>
-
-Qahtan Al Oud is an independent security researcher
-specializing in Bitcoin and blockchain forensics,
-digital investigation, and historical blockchain research.
-
-</p>
-
-<p>
-
-His work focuses on reproducible technical evidence,
-statistical analysis, blockchain data examination,
-and differential testing of consensus-critical
-execution paths.
-
-</p>
-
-<p>
-
-Research is presented with an emphasis on methodological
-transparency, independent verification, and clear
-separation between technical observations,
-interpretations, and attribution.
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<div class="container">
-
-<h2 class="section-title">
-Contact
-</h2>
-
-<p class="section-subtitle">
-
-For research collaboration, technical review,
-or professional inquiries.
-
-</p>
-
-<a
-class="email"
-href="mailto:qahtanbins1@gmail.com">
-
-qahtanbins1@gmail.com
-
-</a>
-
-
-<div
-class="buttons"
-style="justify-content:center">
-
-<a
-class="btn primary"
-href="https://github.com/qahtan58"
-target="_blank"
-rel="noopener">
-
-GitHub Profile
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<footer>
-
-© 2026 Qahtan Al Oud · Independent Security Researcher
-
-</footer>
-
+  </footer>
 
 </body>
-    </html>
+</html>
