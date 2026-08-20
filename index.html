@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Qahtan Al Oud | Independent Security Researcher</title>
 
 <meta name="description"
-content="Qahtan Al Oud is an independent security researcher focused on Bitcoin forensics, blockchain forensics, digital investigation, historical blockchain research, reproducible evidence, and consensus-critical analysis.">
+content="Qahtan Al Oud — Independent security researcher focused on Bitcoin and blockchain forensics, digital investigation, historical blockchain research, reproducible evidence, and consensus-critical analysis.">
 
 <meta name="keywords"
-content="Qahtan Al Oud, Qahtan, Bitcoin forensics, blockchain forensics, Bitcoin research, blockchain investigation, BSC forensics, digital investigation, security researcher">
+content="Qahtan Al Oud, Bitcoin Forensics, Blockchain Forensics, Digital Investigation, Bitcoin Research, BSC Forensics, Blockchain Research">
 
 <meta name="author" content="Qahtan Al Oud">
 
@@ -28,6 +29,7 @@ content="Bitcoin Forensics · Blockchain Forensics · Digital Investigation · C
 content="https://qahtan58.github.io/">
 
 <meta name="twitter:card" content="summary">
+
 
 <style>
 
@@ -57,12 +59,65 @@ a {
     margin: auto;
 }
 
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(7,11,20,0.88);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #172235;
+}
+
+.nav-inner {
+    width: min(1100px, 92%);
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 70px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 19px;
+    color: #eef2ff;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #9ba7bc;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #75adff;
+}
+
+
 /* HERO */
 
 header {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
+
+    padding-top: 70px;
 
     background:
         radial-gradient(
@@ -89,34 +144,43 @@ header {
     color: #75adff;
 
     margin-bottom: 25px;
-
-    font-size: 15px;
 }
 
 h1 {
     font-size: clamp(48px, 9vw, 90px);
+
     line-height: 1;
+
     margin-bottom: 25px;
+
     letter-spacing: -2px;
 }
 
 .hero-title {
     font-size: clamp(22px, 4vw, 38px);
+
     color: #aeb9cf;
+
     max-width: 900px;
+
     margin-bottom: 35px;
 }
 
 .hero-text {
     font-size: 19px;
+
     color: #8995ad;
+
     max-width: 850px;
 }
 
 .buttons {
     display: flex;
+
     gap: 15px;
+
     margin-top: 35px;
+
     flex-wrap: wrap;
 }
 
@@ -140,30 +204,37 @@ h1 {
 
 .btn:hover {
     transform: translateY(-2px);
+
     border-color: #4d8fe8;
 }
 
 .btn.primary {
     background: #1769d5;
+
     border-color: #1769d5;
 }
+
 
 /* SECTIONS */
 
 section {
-    padding: 90px 0;
+    padding: 95px 0;
 }
 
 .section-title {
     font-size: 38px;
+
     margin-bottom: 15px;
 }
 
 .section-subtitle {
     color: #8995ad;
+
     margin-bottom: 40px;
-    max-width: 750px;
+
+    max-width: 780px;
 }
+
 
 /* GRID */
 
@@ -190,11 +261,13 @@ section {
 
 .card:hover {
     border-color: #315f9d;
+
     transform: translateY(-3px);
 }
 
 .card h3 {
     font-size: 23px;
+
     margin-bottom: 12px;
 }
 
@@ -206,6 +279,7 @@ section {
     display: inline-block;
 
     margin-top: 18px;
+
     margin-right: 6px;
 
     padding: 5px 10px;
@@ -219,21 +293,48 @@ section {
     font-size: 13px;
 }
 
-/* PROFILE */
 
-.profile {
-    max-width: 850px;
+/* RESEARCH STATUS */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    color: #75adff;
+
+    font-size: 13px;
 }
 
-.profile p {
-    color: #9ba7bc;
+.status-dot {
+    width: 8px;
+    height: 8px;
 
-    font-size: 18px;
+    border-radius: 50%;
 
-    margin-bottom: 20px;
+    background: #4d9cff;
 }
 
-/* PROJECT LINKS */
+
+/* RESEARCH PORTFOLIO */
+
+.research-card {
+    min-height: 100%;
+}
+
+.research-number {
+    color: #397bd6;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
 
 .project-link {
     display: inline-block;
@@ -251,12 +352,69 @@ section {
     text-decoration: underline;
 }
 
+
+/* METHODOLOGY */
+
+.method-number {
+    font-size: 34px;
+
+    color: #397bd6;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+/* ABOUT */
+
+.profile {
+    max-width: 850px;
+}
+
+.profile p {
+    color: #9ba7bc;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* EVIDENCE */
+
+.evidence {
+    background: #0a101c;
+}
+
+.evidence-box {
+    border-left: 3px solid #397bd6;
+
+    padding: 25px;
+
+    background: #0d1422;
+
+    border-radius: 0 12px 12px 0;
+}
+
+.evidence-box p {
+    color: #9ba7bc;
+
+    margin-bottom: 12px;
+}
+
+
 /* CONTACT */
 
 .contact {
     text-align: center;
 
-    background: #0a101c;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #13294b,
+            #0a101c 45%
+        );
 }
 
 .email {
@@ -270,6 +428,7 @@ section {
 .email:hover {
     text-decoration: underline;
 }
+
 
 /* FOOTER */
 
@@ -285,59 +444,114 @@ footer {
     font-size: 14px;
 }
 
+
 /* MOBILE */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
+    .nav-links {
+        display: none;
+    }
 
     section {
-        padding: 65px 0;
+        padding: 70px 0;
     }
 
     h1 {
         font-size: 52px;
     }
 
-    .hero-text {
-        font-size: 17px;
-    }
-
     .hero-title {
         font-size: 23px;
+    }
+
+    .hero-text {
+        font-size: 17px;
     }
 
 }
 
 </style>
 
-<!-- Structured data for search engines -->
+
+<!-- STRUCTURED DATA -->
+
 <script type="application/ld+json">
+
 {
   "@context": "https://schema.org",
   "@type": "Person",
+
   "name": "Qahtan Al Oud",
+
   "url": "https://qahtan58.github.io/",
+
   "email": "mailto:qahtanbins1@gmail.com",
+
   "jobTitle": "Independent Security Researcher",
-  "description": "Independent security researcher focused on Bitcoin and blockchain forensics, digital investigation, historical blockchain research, reproducible evidence, and consensus-critical analysis.",
+
   "sameAs": [
     "https://github.com/qahtan58"
   ],
+
   "knowsAbout": [
     "Bitcoin Forensics",
     "Blockchain Forensics",
     "Digital Investigation",
-    "Blockchain Research",
+    "Historical Blockchain Research",
     "Consensus Analysis",
     "State Transition Analysis",
     "Statistical Analysis",
     "Reproducible Research"
   ]
 }
+
 </script>
 
 </head>
 
+
 <body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="nav-inner">
+
+<a class="logo"
+href="#">
+Qahtan Al Oud
+</a>
+
+<div class="nav-links">
+
+<a href="#research">
+Research
+</a>
+
+<a href="#portfolio">
+Portfolio
+</a>
+
+<a href="#methodology">
+Methodology
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+</div>
+
+</nav>
 
 
 <!-- HERO -->
@@ -377,13 +591,25 @@ class="btn primary"
 href="https://github.com/qahtan58"
 target="_blank"
 rel="noopener">
+
 GitHub
+
+</a>
+
+<a
+class="btn"
+href="#portfolio">
+
+Research Portfolio
+
 </a>
 
 <a
 class="btn"
 href="mailto:qahtanbins1@gmail.com">
+
 Contact
+
 </a>
 
 </div>
@@ -393,9 +619,9 @@ Contact
 </header>
 
 
-<!-- RESEARCH FOCUS -->
+<!-- RESEARCH -->
 
-<section>
+<section id="research">
 
 <div class="container">
 
@@ -405,7 +631,9 @@ Research Focus
 
 <p class="section-subtitle">
 
-Areas of independent technical research and investigation.
+Independent technical research across blockchain
+forensics, historical data analysis, and
+consensus-critical systems.
 
 </p>
 
@@ -415,6 +643,11 @@ Areas of independent technical research and investigation.
 
 <div class="card">
 
+<div class="status">
+<span class="status-dot"></span>
+Research Area
+</div>
+
 <h3>
 Bitcoin Forensics
 </h3>
@@ -422,7 +655,7 @@ Bitcoin Forensics
 <p>
 
 Historical analysis of Bitcoin blockchain data,
-transaction structures, block-level behavior,
+block-level behavior, transaction structures,
 statistical signals, and reproducible forensic evidence.
 
 </p>
@@ -436,15 +669,20 @@ statistical signals, and reproducible forensic evidence.
 
 <div class="card">
 
+<div class="status">
+<span class="status-dot"></span>
+Research Area
+</div>
+
 <h3>
 Blockchain Forensics
 </h3>
 
 <p>
 
-Technical investigation of blockchain data and execution
-behavior using reproducible analytical methods and
-independently verifiable evidence.
+Technical investigation of blockchain data and
+execution behavior using documented analytical
+methods and independently verifiable evidence.
 
 </p>
 
@@ -456,6 +694,11 @@ independently verifiable evidence.
 
 
 <div class="card">
+
+<div class="status">
+<span class="status-dot"></span>
+Research Area
+</div>
 
 <h3>
 Consensus & State Transitions
@@ -475,7 +718,6 @@ statistical analysis within blockchain systems.
 
 </div>
 
-
 </div>
 
 </div>
@@ -483,19 +725,20 @@ statistical analysis within blockchain systems.
 </section>
 
 
-<!-- SELECTED RESEARCH -->
+<!-- PORTFOLIO -->
 
-<section>
+<section id="portfolio">
 
 <div class="container">
 
 <h2 class="section-title">
-Selected Research
+Research Portfolio
 </h2>
 
 <p class="section-subtitle">
 
-Public research repositories and reproducible technical work.
+Selected public research repositories and technical
+work emphasizing reproducibility and transparent methodology.
 
 </p>
 
@@ -505,10 +748,14 @@ Public research repositories and reproducible technical work.
 
 <!-- BSC -->
 
-<div class="card">
+<div class="card research-card">
+
+<div class="research-number">
+01 · BSC FORENSICS
+</div>
 
 <h3>
-BSC-Forensics
+Historical Consensus & State-Transition Differential Testing
 </h3>
 
 <p>
@@ -520,9 +767,9 @@ and technical evidence.
 
 </p>
 
-<span class="tag">BSC</span>
+<span class="tag">BNB Smart Chain</span>
 <span class="tag">Forensics</span>
-<span class="tag">Reproducibility</span>
+<span class="tag">Differential Testing</span>
 
 <br>
 
@@ -532,16 +779,20 @@ href="https://github.com/qahtan58/BSC-Forensics"
 target="_blank"
 rel="noopener">
 
-View BSC-Forensics Repository →
+View Repository →
 
 </a>
 
 </div>
 
 
-<!-- SATOSHI ERA -->
+<!-- SATOSHI -->
 
-<div class="card">
+<div class="card research-card">
+
+<div class="research-number">
+02 · BITCOIN
+</div>
 
 <h3>
 Satoshi-Era Forensic Audit
@@ -550,9 +801,8 @@ Satoshi-Era Forensic Audit
 <p>
 
 Independent forensic research focused on historical
-Bitcoin blockchain data and the examination of
-early blockchain activity using documented analytical
-methods.
+Bitcoin blockchain data and the examination of early
+blockchain activity using documented analytical methods.
 
 </p>
 
@@ -568,16 +818,20 @@ href="https://github.com/qahtan58/satoshi-era-forensic-audit"
 target="_blank"
 rel="noopener">
 
-View Research Repository →
+View Repository →
 
 </a>
 
 </div>
 
 
-<!-- REPRODUCIBILITY -->
+<!-- EVIDENCE -->
 
-<div class="card">
+<div class="card research-card">
+
+<div class="research-number">
+03 · METHODOLOGY
+</div>
 
 <h3>
 Reproducible Evidence
@@ -606,9 +860,172 @@ observed evidence and attribution claims.
 </section>
 
 
+<!-- METHODOLOGY -->
+
+<section id="methodology">
+
+<div class="container">
+
+<h2 class="section-title">
+Research Methodology
+</h2>
+
+<p class="section-subtitle">
+
+A structured approach designed to make technical
+observations reproducible and independently reviewable.
+
+</p>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="method-number">
+01
+</div>
+
+<h3>
+Data
+</h3>
+
+<p>
+
+Define the research scope, identify the relevant
+blockchain data, and document the data collection
+and processing procedures.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="method-number">
+02
+</div>
+
+<h3>
+Analysis
+</h3>
+
+<p>
+
+Apply structural, statistical, and differential
+analysis to identify measurable patterns or
+differences in observed behavior.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="method-number">
+03
+</div>
+
+<h3>
+Verification
+</h3>
+
+<p>
+
+Reproduce technical observations and compare
+results against independently obtainable data
+where applicable.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="method-number">
+04
+</div>
+
+<h3>
+Evidence
+</h3>
+
+<p>
+
+Document observations, procedures, limitations,
+supporting material, and the distinction between
+technical evidence and interpretation.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EVIDENCE PRINCIPLES -->
+
+<section class="evidence">
+
+<div class="container">
+
+<h2 class="section-title">
+Evidence Principles
+</h2>
+
+<p class="section-subtitle">
+
+The research presentation emphasizes technical
+transparency and avoids conclusions that exceed
+the available evidence.
+
+</p>
+
+
+<div class="evidence-box">
+
+<p>
+<strong>Reproducibility:</strong>
+Methods and research scope should be documented
+so that relevant observations can be independently examined.
+</p>
+
+<p>
+<strong>Verification:</strong>
+Where possible, technical observations are checked
+against independently obtainable blockchain data.
+</p>
+
+<p>
+<strong>Separation of claims:</strong>
+Observed technical behavior is distinguished from
+interpretation, causation, and attribution.
+</p>
+
+<p>
+<strong>Limitations:</strong>
+Research conclusions remain bounded by the available
+data, methodology, and verification scope.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
 <!-- ABOUT -->
 
-<section>
+<section id="about">
 
 <div class="container profile">
 
@@ -647,101 +1064,9 @@ interpretations, and attribution.
 </section>
 
 
-<!-- METHODOLOGY -->
-
-<section>
-
-<div class="container">
-
-<h2 class="section-title">
-Research Methodology
-</h2>
-
-<p class="section-subtitle">
-
-A research approach centered on reproducibility
-and independently verifiable technical evidence.
-
-</p>
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>
-01 · Data
-</h3>
-
-<p>
-
-Collection and examination of historical blockchain
-data with documented scope and processing procedures.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-02 · Analysis
-</h3>
-
-<p>
-
-Statistical, structural, and differential analysis
-of observed blockchain behavior.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-03 · Verification
-</h3>
-
-<p>
-
-Reproduction and independent verification of
-technical observations where applicable.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-04 · Evidence
-</h3>
-
-<p>
-
-Clear documentation of observations, methodology,
-limitations, and supporting technical evidence.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
 <!-- CONTACT -->
 
-<section class="contact">
+<section id="contact" class="contact">
 
 <div class="container">
 
@@ -794,4 +1119,4 @@ GitHub Profile
 
 
 </body>
-</html>
+    </html>
